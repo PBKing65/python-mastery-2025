@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "python-mastery"
+version = "0.1.0"
+description = "Mein 12-Monats-Python-Master-Plan"
+authors = ["PBKing65 <deine@email.de>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = "python_mastery.main:main"
