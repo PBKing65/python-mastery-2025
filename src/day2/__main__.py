@@ -1,38 +1,30 @@
-def main():
-    print("🚀 DAY 2 - Willkommen zum echten Python-Spaß!\n")
+# Datei: main.py
 
-    # 1. Listen – dein erstes "Array"
-    lieblings_essen = ["Pizza", "Burger", "Sushi", "Döner"]
-    print("Deine Top-4-Lieblingsessen:", lieblings_essen)
-    lieblings_essen.append("Schokolade")
-    print("Jetzt mit Schokolade:", lieblings_essen)
+class Katze:
+    # Das ist der Konstruktor – wird aufgerufen, wenn du Katze() schreibst
+    def __init__(self, name, alter):
+        self.name = name        # self.name ist eine Instanzvariable
+        self.alter = alter
 
-    # 2. String-Magie
-    name = input("\nWie heißt du? ")
-    print(f"Hallo {name.upper()}! Dein Name hat {len(name)} Buchstaben.")
-    print(f"Und rückwärts: {name[::-1]} 😄")
+    # Eine Methode (Funktion innerhalb der Klasse)
+    def miauen(self):
+        print(f"{self.name} sagt: Miau!")
 
-    # 3. Eigene Funktion
-    def motivieren(tag: int):
-        print(f"Tag {tag}: Ich werde heute Python-Rockstar!")
+    def geburtstag(self):
+        self.alter = self.alter + 1
+        print(f"{self.name} ist jetzt {self.alter} Jahre alt!")
 
-    print("\nDeine Motivation für die nächsten 7 Tage:")
-    for tag in range(1, 8):
-        motivieren(tag)
 
-    # 4. Mini-Zahlenraten-Spiel (dein erstes echtes Spiel!)
-    print("\n🎲 Kleines Zahlenraten-Spiel (1–10)")
-    geheimzahl = 7
-    versuch = int(input("Dein Tipp: "))
-
-    if versuch == geheimzahl:
-        print("🎉 GENAU RICHTIG du bist ein Genie!")
-    elif versuch < geheimzahl:
-        print("Zu niedrig!")
-    else:
-        print("Zu hoch!")
-
-    print("\nDay 2 komplett  du rockst das!")
-
+# ─────── Hier startet das Programm ───────
 if __name__ == "__main__":
-    main()
+    # Wir erzeugen zwei echte Katzen-Objekte
+    meine_katze = Katze("Luna", 3)
+    deine_katze = Katze("Mogli", 5)
+
+    # Jetzt benutzen wir sie
+    print("Wir haben zwei Katzen:")
+    meine_katze.miauen()
+    deine_katze.miauen()
+
+    meine_katze.geburtstag()
+    deine_katze.geburtstag()

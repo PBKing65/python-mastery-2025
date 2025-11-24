@@ -1,0 +1,10 @@
+[
+  {
+    "text": "Test1 Aufgabe",
+    "erledigt": true
+  },
+  {
+    "text": "Test 2 Aufgabe",
+    "erledigt": false
+  }
+]
