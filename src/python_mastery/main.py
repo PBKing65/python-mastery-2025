@@ -11,25 +11,50 @@ class Todo:
         self.erledigt = True
         print("✓ Aufgabe erledigt!")
 
+class TodoListe:
+    def __init__(self):
+        self.aufgaben = []
+
+    def hinzufügen(self,text):
+        neueAufgabe = Todo(text)
+        self.aufgaben.append(neueAufgabe)
+        print(f"→ Hinzugefügt: {text}")
+
+    def alle_anzeigen(self):
+        print("\n=== Alle Aufgaben ===")
+        if not self.aufgaben:
+            print("Noch nichts zu tun - super!")
+        else:
+            for aufgabe in self.aufgaben:
+                aufgabe.anzeigen()
+
+    def erledigte_anzeigen(self):
+        print("\n=== Erledigte Aufgaben ===")
+        erledigte = [a for a in self.aufgaben if a.erledigt]
+        if not erledigte:
+            print("Noch nichts erledigt")
+        else:
+            for aufgabe in erledigte:
+                aufgabe.anzeigen()
+
+
 
 def main():
-    print("Day 5 - Ich baue meine erste Todo-Klasse selbst!\n")
+    print("Day 6 - Ich baue meine erste TodoListe Klasse!\n")
 
-    aufgabe1 = Todo("Python lernen")
-    aufgabe2 = Todo("Einkaufen gehen")
-    aufgabe3 = Todo("Sport machen")
+    liste = TodoListe()
 
-    aufgabe1.anzeigen()
-    aufgabe2.anzeigen()
-    aufgabe3.anzeigen()
+    liste.hinzufügen("Python lernen")
+    liste.hinzufügen("Einkaufen gehen")
+    liste.hinzufügen("Sport machen")
 
-    print("\nIch erledige jetzt die Aufgabe...")
-    aufgabe1.erledigen()
+    liste.alle_anzeigen()
 
-    print("\nAktueller Stand:")
-    aufgabe1.anzeigen()
-    aufgabe2.anzeigen()
-    aufgabe3.anzeigen()
+    print("\nIch erledige die erste Aufgabe...")
+    liste.aufgaben[0].erledigen()
+
+    liste.alle_anzeigen()
+    liste.erledigte_anzeigen()
 
 
 
