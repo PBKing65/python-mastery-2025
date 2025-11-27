@@ -1,60 +1,31 @@
-class Todo:
-    def __init__(self, text):
-        self.text = text
-        self.erledigt = False
-
-    def anzeigen(self):
-        status = "✓" if self.erledigt else "○"
-        print(f"{status} {self.text}")
-
-    def erledigen(self):
-        self.erledigt = True
-        print("✓ Aufgabe erledigt!")
-
-class TodoListe:
-    def __init__(self):
-        self.aufgaben = []
-
-    def hinzufügen(self,text):
-        neueAufgabe = Todo(text)
-        self.aufgaben.append(neueAufgabe)
-        print(f"→ Hinzugefügt: {text}")
-
-    def alle_anzeigen(self):
-        print("\n=== Alle Aufgaben ===")
-        if not self.aufgaben:
-            print("Noch nichts zu tun - super!")
-        else:
-            for aufgabe in self.aufgaben:
-                aufgabe.anzeigen()
-
-    def erledigte_anzeigen(self):
-        print("\n=== Erledigte Aufgaben ===")
-        erledigte = [a for a in self.aufgaben if a.erledigt]
-        if not erledigte:
-            print("Noch nichts erledigt")
-        else:
-            for aufgabe in erledigte:
-                aufgabe.anzeigen()
-
 
 
 def main():
-    print("Day 6 - Ich baue meine erste TodoListe Klasse!\n")
+    print("Day 7 - Listen Deep Dive\n")
 
-    liste = TodoListe()
+    zahlen =[10,20,5,50,30]
+    namen = ["Peter", "Lisa", "Tom"]
 
-    liste.hinzufügen("Python lernen")
-    liste.hinzufügen("Einkaufen gehen")
-    liste.hinzufügen("Sport machen")
+    print("Erste Zahl", zahlen[0])
+    print("Letzte Zahl", zahlen[-1])
+    print("Zweiter Name", namen[1])
 
-    liste.alle_anzeigen()
+    print("Anzahl Zahlen", len(zahlen))
+    print("Anzahl Namen", len(namen))
 
-    print("\nIch erledige die erste Aufgabe...")
-    liste.aufgaben[0].erledigen()
+# Element überschreiben
+    zahlen[2] = 999
+    print("Zahlen nach Überschreiben", zahlen)
 
-    liste.alle_anzeigen()
-    liste.erledigte_anzeigen()
+#Element anhängen
+    namen.append("Anna")
+    print("Namen nach Append", namen)
+
+# Element eifügen
+    zahlen.insert(1,15)
+    print("Die Zahl 15 eingefügt zweischen 10 und 20", zahlen)
+
+
 
 
 
