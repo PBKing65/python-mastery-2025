@@ -1,33 +1,47 @@
 
 
+
+
+class Todo:
+            def __init__(self, text):
+                self.text = text
+                self.erledigt = False
+
+            
+            def erledigen(self):
+                self.erledigt = True
+                print("Aufgabe erledigt")
+
 def main():
-    print("Day 7 - Listen Deep Dive\n")
 
-    zahlen =[10,20,5,50,30]
-    namen = ["Peter", "Lisa", "Tom"]
+    todos = [
+            Todo("Python lernen"),
+            Todo("Einkaufen gehen"),
+            Todo("Sport machen"),
+            Todo("Freunde treffen"),
+            Todo("schlafen"),
+    ]
 
-    print("Erste Zahl", zahlen[0])
-    print("Letzte Zahl", zahlen[-1])
-    print("Zweiter Name", namen[1])
+    todos[0].erledigen()
+    todos[2].erledigen()
+    todos[4].erledigen()
 
-    print("Anzahl Zahlen", len(zahlen))
-    print("Anzahl Namen", len(namen))
+    
 
-# Element überschreiben
-    zahlen[2] = 999
-    print("Zahlen nach Überschreiben", zahlen)
+    print("=== Alle Aufgaben-Texte ===")
+    texte = [todo.text for todo in todos]
+    print(texte)
 
-#Element anhängen
-    namen.append("Anna")
-    print("Namen nach Append", namen)
+    print("=== Nur erledigte Aufgben ===")
+    erledigt =[todo for todo in todos if todo.erledigt]
+    for t in erledigt:
+        print("✓", t.text)
 
-# Element eifügen
-    zahlen.insert(1,15)
-    print("Die Zahl 15 eingefügt zweischen 10 und 20", zahlen)
-
-
-
-
+    print("\n=== Nur offene Aufgaben (als neue Liste)===")
+    offen = [t for t in todos if not t.erledigt]
+    for t in offen:
+         print("o",t.text)
+    
 
 if __name__ == "__main__":
     main()
